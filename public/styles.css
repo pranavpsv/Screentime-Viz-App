@@ -1,0 +1,289 @@
+
+body {
+    background: url("background.png");
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+
+
+}
+
+.button.active {
+  background-color: #f00;
+  -ms-transition-duration: 0.2s;
+  -ms-transform: scale(0.95);
+  -webkit-transition-duration: 0.2s;
+  -webkit-transform: scale(0.95);
+  -moz-transition-duration: 0.2s;
+  -moz-transform: scale(0.95);
+  -o-transition-duration: 0.2s;
+  -o-transform: scale(0.95);
+}
+div {
+    text-align:center;
+    padding-top: 50px;
+    padding-bottom: 20px
+}
+
+div .button :active {
+  color:red;
+  box-shadow: 0 0 5px -1px rgba(16, 105, 240, 0.6);
+}
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400');
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+
+/* Heading */
+
+h1 {
+  font-size: 1.5em;
+  text-align: center;
+  padding: 70px 0 0 0;
+  color: #EF8354;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+span {
+  border: 2px solid #4F5D75;
+  padding: 10px;
+}
+
+
+/* Layout Styling */
+
+#container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 50px 0 150px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.button {
+  display:inline-block;
+  width: auto;
+  padding-left:10px;
+  padding-right:10px;
+  display: inline-flex;
+  width: 150px;
+  border: 2px solid #BFC0C0;
+  border-radius:10%;
+  margin: 20px 20px 20px 20px;
+  color:white;
+  border-color: white;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: .8em;
+  letter-spacing: 1.5px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.button:active {
+  color:red;
+  box-shadow: 0 0 5px -1px rgba(16, 105, 240, 0.6);
+}
+
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:700");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  height: 100px;
+}
+.container .search {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  background: crimson;
+  border-radius: 50%;
+  transition: all 1s;
+  z-index: 4;
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
+}
+.container .search:hover {
+  cursor: pointer;
+}
+.container .search::before {
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: 22px;
+  right: 0;
+  bottom: 0;
+  left: 22px;
+  width: 12px;
+  height: 2px;
+  background: white;
+  transform: rotate(45deg);
+  transition: all .5s;
+}
+.container .search::after {
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: -5px;
+  right: 0;
+  bottom: 0;
+  left: -5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid white;
+  transition: all .5s;
+}
+.container input {
+  font-family: 'Inconsolata', monospace;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  outline: none;
+  border: none;
+  background: crimson;
+  color: white;
+  /* text-shadow: 0 0 10px crimson; */
+  padding: 0 80px 0 20px;
+  border-radius: 30px;
+  box-shadow: 0 0 25px 0 crimson, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
+  transition: all 1s;
+  opacity: 0;
+  z-index: 5;
+  font-weight: bolder;
+  letter-spacing: 0.1em;
+}
+.container input:hover {
+  cursor: pointer;
+}
+.container input:focus {
+  width: 300px;
+  opacity: 1;
+  cursor: text;
+}
+.container input:focus ~ .search {
+  right: -250px;
+  background: #151515;
+  z-index: 6;
+}
+.container input:focus ~ .search::before {
+  top: 0;
+  left: 0;
+  width: 25px;
+}
+.container input:focus ~ .search::after {
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 2px;
+  border: none;
+  background: white;
+  border-radius: 0%;
+  transform: rotate(-45deg);
+}
+.container input::placeholder {
+  color: white;
+  opacity: 0.5;
+  font-weight: bolder;
+}
+
+
+
+@media screen and (min-width:1000px) {
+  h1 {
+    font-size: 2.2em;
+  }
+  #container {
+    width: 50%;
+  }
+}
+
+
+div #exp_wrap {
+  width: 320px;
+  height: 500px;
+  float: left;
+  border: 1px solid #c0c0c0;
+}
+#exp_wrap h3 {
+  text-align: center;
+}
+div #exp_blok {
+  height: 460px;
+  width: 280px;
+  padding: 20px;
+}
+div #exp {
+  text-decoration: none;
+  position: absolute;
+  width: 260px;
+  height: 418px;
+  z-index:4;
+  background: rgba(0,0,0,0);
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+  margin: 16px 10px;
+  color: rgba(256,256,256,0);
+  text-align: center;
+  line-height: 250px;
+  font-size: 30px;
+  font-family: sans-serif;
+}
+div #exp_txt {
+  position: absolute;
+  width: 260px;
+  height: 418px;
+  background: url('http://www.dutchstandardevents.com/img/whoweare1.jpg') #333;
+  background-size: 260px 418px;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+  margin: 16px 10px;
+}
+div #exp:hover {
+  color: rgba(256,256,256,1);
+  background: rgba(0,0,0,.5);
+  width: 280px;
+  height: 450px;
+  margin: 0;
+  box-shadow: 0 8px 20px #555, 0 8px 30px #555;
+  line-height: 450px;
+}
+div #exp:hover + #exp_txt {
+    opacity: .7;
+  width: 280px;
+  height: 450px;
+  background-size: 280px 450px;
+  margin: 0;
+}

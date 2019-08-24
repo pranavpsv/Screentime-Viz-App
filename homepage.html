@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HomePage</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/combine/npm/jquery,npm/lodash,npm/g1"></script>
+</head>
+
+<body>
+    <div class="app-4">
+            <div class="container">
+                    <input type="search" data-search="@text" data-target=".button" data-hide-class="d-none" placeholder="Search here"
+                    class="form-control">
+                    <div class="search"></div>
+                  </div>
+        <!-- <input type="search" data-search="@text" data-target=".btn" data-hide-class="d-none" placeholder="Search here"
+            class="form-control"> -->
+        <div>
+            <div class="button a" v-if="!on">
+                <button class="btn dark languages" value="Telugu"  style="color: white;">Telugu</button>
+            </div>
+            <div class="button a" v-if="!on">
+                <button class="btn dark languages" value="English" style="color: white;">English</button>
+            </div>
+            <div class="button a" v-if="!on">
+                <button class="btn dark languages" value="Tamil" style="color: white;">Tamil</button>
+            </div>
+            <div class="button a" v-if="!on">
+                <button class="btn dark languages" value="Hindi" style="color: white;">Hindi</button>
+            </div>
+        </div>
+        <form action="/" method="POST" v-if='on'>
+            <div class="button a" v-for="movie in moviesArray" v-if="movie.includes(language)"  data-search="@text">
+                <button type='submit' class="btn dark languages" :value="movie"
+                     style="color: white;" name="movieFileName">
+                {{ movie.split('_').join(' ').split(" xray")[0].split(") ").splice(1).join()}}
+                </button>
+            </div>
+        </form>
+    </div>
+    <script>
+        let jsonData;
+        var movies;
+        var app4;
+        $(".myButton").on("mousedown mouseup", function(e){
+            $(this).toggleClass("active", e.type === "mousedown");
+        });
+        fetch('movies')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (json) {
+                movies = JSON.parse(json);
+                app4 = new Vue({
+                    el: ".app-4",
+                    data: {
+                        on: false,
+                        moviesArray: movies,
+                        language: ''
+                    }
+                });
+                $('.a').click(function () {
+                    app4.language = ($(this).text());
+                    language = app4.language;
+                    console.log(app4.language);
+                    app4.on = true
+                });
+ 
+
+            })
+    </script>
+</body>
+<script>
+    $('body').search()
+</script>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="visuals.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.4.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@3.3.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@4.2.0"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+
+    <script src="charts.js"></script>
+    <!-- <script src="topCharacters.js"></script> -->
+</head>
+
+<body>
+    <div class="card text-center">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                    <button class="nav-link active charts" id="button1">Movie Gantt Chart</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link charts" id="button2">Top Characters Screentime</button>
+                </li>
+            </ul>
+        </div>
+        <h5 class="card-title">Movie Gantt Chart</h5>
+
+        <div class="card-body gantt" id="gantt">
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-9 col-sm-9">
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+    <script>
+        var opt = {
+            renderer: "svg"
+        }
+        let chartDiv = ".gantt";
+        let spec = ganttChartSpec;
+        vegaEmbed(chartDiv, spec, opt);
+        $("button").on("click", (event) => {
+            console.log("Success!");
+            $("button").toggleClass("active");
+            $("#gantt").toggleClass("gantt");
+            $("#gantt").toggleClass("topchar");
+            $("h5").text(event.target.innerText);
+            chartDiv = (chartDiv === ".gantt") ? ".topchar" : ".gantt";
+            spec = (spec == ganttChartSpec) ? topCharactersSpec : ganttChartSpec;
+            vegaEmbed(chartDiv, spec, opt);
+        })
+    </script>
+</body>
+</html>
